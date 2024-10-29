@@ -2,26 +2,25 @@ import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import BookingModal from './BookingModal';  // Import the BookingModal component
 import { Link } from 'react-router-dom';
-import Contact from './Contact'
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const services = [
-    'Funeral Arrangement',
-    'Cremation Service',
-    'Pandir for Funeral',
-    'Asthi Visarjan',
-    'Chautha And Tehravin',
-    'Prayer Hall Service',
-    'Dead Body Transport Service',
-    'Dead Body Freezer Box',
-    'Antim Sanskar Samagri',
+        'Funeral Arrangement',
+        'Cremation Service',
+        'Pandir for Funeral',
+        'Asthi Visarjan',
+        'Chautha And Tehravin',
+        'Prayer Hall Service',
+        'Dead Body Transport Service',
+        'Dead Body Freezer Box',
+        'Antim Sanskar Samagri',
     ];
 
     const handleBookingSubmit = (formData) => {
-        // Handle the form submission
         console.log('Form submitted:', formData);
     };
 
@@ -32,18 +31,17 @@ const Navbar = () => {
                     <div className="flex justify-between items-center h-20">
                         {/* Logo Section */}
                         <div className="flex-shrink-0 flex items-center">
-                            <div className="flex items-center gap-2">
-                                <div className="text-blue-600 font-bold text-2xl">
-                                    Tribute
-                                    <span className="text-orange-500">Services</span>
-                                </div>
-                            </div>
+                            <img
+                                src="https://shahfuneralservice.in/images/logo-antim-sanskar-seva.png"
+                                alt="Tribute Services Logo"
+                                className="h-12 w-auto" // Ensures the logo is responsive
+                            />
                         </div>
 
                         {/* Desktop Menu */}
                         <div className="hidden md:flex items-center space-x-8">
                             <a href="#" className="text-gray-700 hover:text-orange-500">Home</a>
-                            <a href="#" className="text-gray-700 hover:text-orange-500">About</a>
+                            <Link to="/about" className="text-gray-700 hover:text-orange-500">About</Link>
 
                             {/* Desktop Services Dropdown */}
                             <div className="relative group">
@@ -58,7 +56,7 @@ const Navbar = () => {
 
                                 <div
                                     className={`absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 
-                    ${isServicesOpen ? 'block' : 'hidden'}`}
+                                    ${isServicesOpen ? 'block' : 'hidden'}`}
                                     onMouseEnter={() => setIsServicesOpen(true)}
                                     onMouseLeave={() => setIsServicesOpen(false)}
                                 >
@@ -101,7 +99,7 @@ const Navbar = () => {
                         <div className="md:hidden">
                             <div className="px-2 pt-2 pb-3 space-y-1">
                                 <a href="#" className="block px-3 py-2 text-gray-700 hover:text-orange-500">Home</a>
-                                <a href="#" className="block px-3 py-2 text-gray-700 hover:text-orange-500">About</a>
+                                <Link to="/about" className="block px-3 py-2 text-gray-700 hover:text-orange-500">About</Link>
 
                                 {/* Mobile Services Dropdown */}
                                 <div className="relative">
@@ -128,7 +126,7 @@ const Navbar = () => {
                                     )}
                                 </div>
 
-                                <a href="#" className="block px-3 py-2 text-gray-700 hover:text-orange-500">Contact</a>
+                                <Link to="/contact" className="block px-3 py-2 text-gray-700 hover:text-orange-500">Contact</Link>
                                 <button
                                     onClick={() => setIsModalOpen(true)}
                                     className="w-full mt-2 bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600"
