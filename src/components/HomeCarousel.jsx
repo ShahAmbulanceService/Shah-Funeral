@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import BookingModal from "./BookingModal"; // Ensure BookingModal is in the same directory or adjust the import path
 
 const HeroCarousel = () => {
   const slides = [
@@ -12,7 +11,7 @@ const HeroCarousel = () => {
           Care And Compassion
         </>
       ),
-      buttonText: "Enquire Now",
+      buttonText: "Call Us Now",
     },
     {
       image: "https://cdn.sanity.io/images/zzw4zduo/production/50b8eca404e70deb7aec4de13a8d80e38492f199-6546x4364.jpg",
@@ -23,7 +22,7 @@ const HeroCarousel = () => {
           We're Here To Ensure It
         </>
       ),
-      buttonText: "Enquire Now",
+      buttonText: "Call Us Now",
     },
     {
       image: "https://evergreenjax.com/wp-content/uploads/2023/05/mayron-oliveira-mibn6LLm9kA-unsplash-1150x647.jpg",
@@ -34,12 +33,11 @@ const HeroCarousel = () => {
           Creating Meaningful Tributes
         </>
       ),
-      buttonText: "Enquire Now",
+      buttonText: "Call Us Now",
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal open state
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,9 +48,6 @@ const HeroCarousel = () => {
 
     return () => clearInterval(interval);
   }, [slides.length]);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -72,12 +67,12 @@ const HeroCarousel = () => {
               <h1 className="text-3xl md:text-5xl font-medium text-white">
                 {slide.title}
               </h1>
-              <button
-                onClick={openModal} // Opens the modal on button click
+              <a
+                href="tel:+919920963000"  
                 className="px-8 py-4 mt-8 font-semibold text-white bg-orange-500 rounded hover:bg-orange-600"
               >
                 {slide.buttonText}
-              </button>
+              </a>
             </div>
           </div>
         ))}
@@ -119,15 +114,8 @@ const HeroCarousel = () => {
         </div>
       </div>
 
-      {/* Booking Modal */}
-      <BookingModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onSubmit={(formData) => {
-          console.log("Form submitted:", formData);
-          closeModal();
-        }}
-      />
+     
+      
     </>
   );
 };

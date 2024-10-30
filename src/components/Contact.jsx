@@ -27,7 +27,7 @@ const Contact = () => {
 
 
 
-            <Common title="Contact Us" route="contact" />
+            <Common title="Contact" route="contact" />
 
             {/* Contact Form Section */}
             <div className="mx-auto max-w-6xl px-4 py-16">

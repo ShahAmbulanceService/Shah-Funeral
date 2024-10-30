@@ -5,7 +5,7 @@ import Common from './Common';
 const AboutUs = () => {
   return (
     <div className="min-h-screen bg-white">
-          <Common title="About Us" route="about"/>
+          <Common title="About" route="about"/>
       
 
       {/* Main Content */}
@@ -54,7 +54,7 @@ const AboutUs = () => {
           {/* Experience Counter */}
           <div className="mt-16 flex justify-start">
             <div className="flex items-center gap-6">
-              <span className="text-[120px] font-bold text-[#F7941D] leading-none">20+</span>
+              <span className="text-[120px] font-bold text-[#F7941D] leading-none">20</span>
               <div className="border-l-2 border-gray-300 pl-6">
                 <p className="text-gray-600 text-xl">Year</p>
                 <p className="text-[#0A0B3B] font-semibold text-xl">Of Experience</p>

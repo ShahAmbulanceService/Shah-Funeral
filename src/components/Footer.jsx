@@ -39,6 +39,11 @@ const Footer = () => {
        
     ];
 
+    const scrollEffect = () =>{
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
+
     return (
         <footer className="bg-navy text-white py-12 px-4 relative overflow-hidden">
             {/* Background bird logo */}
@@ -60,7 +65,7 @@ const Footer = () => {
                         Trust us for peaceful care for your loved ones, beyond this world and into eternity.
                     </p>
                     <div className="flex space-x-4">
-                        <a href="#" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
+                        <a href="https://www.facebook.com/profile.php?id=61566525907429&mibextid=ZbWKwL" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
                             <Facebook size={20} />
                         </a>
                         <a href="https://www.youtube.com/@ShahAmbulanceService" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
@@ -93,7 +98,7 @@ const Footer = () => {
                     <ul className="space-y-2">
                         {links.map((link, index) => (
                             <li key={index}>
-                                <Link to={link.route} className="text-gray-900 hover:text-orange-400 transition-colors">
+                                <Link to={link.route} className="text-gray-900 hover:text-orange-400 transition-colors" onClick={scrollEffect}>
                                     {link.title}
                                 </Link>
                             </li>
@@ -107,8 +112,9 @@ const Footer = () => {
                     <div className="space-y-4">
                         <div className="flex items-start space-x-3">
                             <MapPin className="text-orange-400 mt-1" size={20} />
-                            <p className="text-gray-900">
-                               Opp BMW Showroom, Juhu Lane, Andheri (W), Mumbai 400058 
+                            <p className="text-gray-900 ">
+                               Opp BMW Showroom, Juhu Lane,  <br/>
+                               Andheri (W), Mumbai 400058 
 
                             </p>
                         </div>
