@@ -14,7 +14,7 @@ const HeroSection2 = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#0A0B3B] mb-8">
               We Provide Best Funeral And Cremation<br />
-              Service Since 1998
+              Service Since 2004
             </h2>
           </div>
 
@@ -53,7 +53,7 @@ const HeroSection2 = () => {
           {/* Experience Counter */}
           <div className="mt-16 flex justify-start">
             <div className="flex items-center gap-6">
-              <span className="text-[120px] font-bold text-[#F7941D] leading-none">35</span>
+              <span className="text-[120px] font-bold text-[#F7941D] leading-none">20+</span>
               <div className="border-l-2 border-gray-300 pl-6">
                 <p className="text-gray-600 text-xl">Year</p>
                 <p className="text-[#0A0B3B] font-semibold text-xl">Of Experience</p>

@@ -4,7 +4,7 @@ import BookingModal from "./BookingModal"; // Ensure BookingModal is in the same
 const HeroCarousel = () => {
   const slides = [
     {
-      image: "/banner-1.jpg",
+      image: "https://www.funeralwise.com/wp-content/uploads/2017/06/iStock-155232719sm.jpg",
       title: (
         <>
           Guiding You Through Moments <br />
@@ -15,7 +15,7 @@ const HeroCarousel = () => {
       buttonText: "Enquire Now",
     },
     {
-      image: "/banner-1.jpg",
+      image: "https://cdn.sanity.io/images/zzw4zduo/production/50b8eca404e70deb7aec4de13a8d80e38492f199-6546x4364.jpg",
       title: (
         <>
           Every Life Deserves A <br />
@@ -26,7 +26,7 @@ const HeroCarousel = () => {
       buttonText: "Enquire Now",
     },
     {
-      image: "/banner-1.jpg",
+      image: "https://evergreenjax.com/wp-content/uploads/2023/05/mayron-oliveira-mibn6LLm9kA-unsplash-1150x647.jpg",
       title: (
         <>
           Where <span className="text-orange-500">Empathy</span> And{" "}

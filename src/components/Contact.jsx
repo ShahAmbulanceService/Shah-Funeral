@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Mail, Home } from 'lucide-react'; // Adjusting to available imports
-import Common from './Common'
+import Common from './Common';
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -24,10 +24,10 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen ">
-           
 
 
-          <Common title="Contact Us" route="contact"/>
+
+            <Common title="Contact Us" route="contact" />
 
             {/* Contact Form Section */}
             <div className="mx-auto max-w-6xl px-4 py-16">
@@ -115,11 +115,11 @@ const Contact = () => {
                                 <div>
                                     <h3 className="text-xl font-semibold text-blue-900">Address</h3>
                                     <p className="text-black">
-                                        8-12, Swatantryaveer Savarkar Rd
+                                        Opp BMW Showroom,  
                                         <br />
-                                        Mahim West, Mahim,
+                                        Juhu Lane,  Andheri (W),
                                         <br />
-                                        Mumbai, Maharashtra 400016
+                                       Mumbai 400058
                                     </p>
                                 </div>
                             </div>

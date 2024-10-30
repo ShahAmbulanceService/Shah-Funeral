@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { Facebook, Youtube, Instagram, MapPin, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 const Footer = () => {
     const services = [
@@ -63,15 +63,13 @@ const Footer = () => {
                         <a href="#" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
                             <Facebook size={20} />
                         </a>
-                        <a href="#" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
-                            <Twitter size={20} />
+                        <a href="https://www.youtube.com/@ShahAmbulanceService" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
+                            <Youtube size={20} />
                         </a>
-                        <a href="#" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
+                        <a href="https://www.instagram.com/shahambulanceservice24x7/" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
                             <Instagram size={20} />
                         </a>
-                        <a href="#" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
-                            <Linkedin size={20} />
-                        </a>
+                       
                     </div>
                 </div>
 
@@ -110,20 +108,21 @@ const Footer = () => {
                         <div className="flex items-start space-x-3">
                             <MapPin className="text-orange-400 mt-1" size={20} />
                             <p className="text-gray-900">
-                                387 Swami Vivekanand Road, LIC Colony Suresh Colony Vile Parle West, Mumbai, Maharashtra 400047
+                               Opp BMW Showroom, Juhu Lane, Andheri (W), Mumbai 400058 
+
                             </p>
                         </div>
                         <div className="flex items-center space-x-3">
                             <Phone className="text-orange-400" size={20} />
-                            <p className="text-gray-900">+91 96191 18000</p>
+                            <p className="text-gray-900">+91 99209 63000</p>
                         </div>
                         <div className="flex items-center space-x-3">
                             <Phone className="text-orange-400" size={20} />
-                            <p className="text-gray-900">+91 96191 19000</p>
+                            <p className="text-gray-900">+91 80705 71571</p>
                         </div>
                         <div className="flex items-center space-x-3">
                             <Mail className="text-orange-400" size={20} />
-                            <p className="text-gray-900">tributefuneralservice@gmail.com</p>
+                            <p className="text-gray-900">antimsanskarsevamumbai@gmail.com</p>
                         </div>
                     </div>
                 </div>
