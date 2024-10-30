@@ -105,7 +105,8 @@ const Contact = () => {
                                 <div>
                                     <h3 className="text-xl font-semibold text-blue-900">Lets Talk</h3>
                                     <p className="text-black">+91 99209 63000</p>
-                                    <p className="text-black">antimsanskarsevamumbai@gmail.com</p>
+                                    <p className="text-black">+91 99209 64000</p>
+                                    <p className="text-black">shahambulanceservice24x7@gmail.com</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
