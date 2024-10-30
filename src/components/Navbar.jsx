@@ -34,13 +34,13 @@ const Navbar = () => {
                             <img
                                 src="https://shahfuneralservice.in/images/logo-antim-sanskar-seva.png"
                                 alt="Tribute Services Logo"
-                                className="h-12 w-auto" // Ensures the logo is responsive
+                                className="h-20 w-auto" // Ensures the logo is responsive
                             />
                         </div>
 
                         {/* Desktop Menu */}
                         <div className="hidden md:flex items-center space-x-8">
-                            <a href="#" className="text-gray-700 hover:text-orange-500">Home</a>
+                            <Link to="/" className="text-gray-700 hover:text-orange-500">Home</Link>
                             <Link to="/about" className="text-gray-700 hover:text-orange-500">About</Link>
 
                             {/* Desktop Services Dropdown */}
@@ -53,10 +53,10 @@ const Navbar = () => {
                                     <span>Services</span>
                                     <ChevronDown className="w-4 h-4" />
                                 </button>
-
                                 <div
                                     className={`absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 
-                                    ${isServicesOpen ? 'block' : 'hidden'}`}
+    ${isServicesOpen ? 'block' : 'hidden'}`}
+                                    style={{ zIndex: 50 }} // Increase z-index to ensure visibility
                                     onMouseEnter={() => setIsServicesOpen(true)}
                                     onMouseLeave={() => setIsServicesOpen(false)}
                                 >
@@ -72,6 +72,7 @@ const Navbar = () => {
                                         ))}
                                     </div>
                                 </div>
+
                             </div>
 
                             <Link to="/contact" className="text-gray-700 hover:text-orange-500">Contact</Link>
@@ -98,7 +99,7 @@ const Navbar = () => {
                     {isOpen && (
                         <div className="md:hidden">
                             <div className="px-2 pt-2 pb-3 space-y-1">
-                                <a href="#" className="block px-3 py-2 text-gray-700 hover:text-orange-500">Home</a>
+                                <Link to="/" className="block px-3 py-2 text-gray-700 hover:text-orange-500">Home</Link>
                                 <Link to="/about" className="block px-3 py-2 text-gray-700 hover:text-orange-500">About</Link>
 
                                 {/* Mobile Services Dropdown */}

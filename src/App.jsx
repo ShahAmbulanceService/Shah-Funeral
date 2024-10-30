@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Contact from './components/Contact';
 import Homepage from './components/Homepage';
 import About from './components/About'
+import Footer from './components/Footer';
 function App() {
   return (
     <Router>
@@ -13,6 +14,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         {/* other routes */}
       </Routes>
+      <Footer />
+
     </Router>
   );
 }

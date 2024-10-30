@@ -24,7 +24,10 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen ">
-          <Common title="Contact Us" route="Contact"/>
+           
+
+
+          <Common title="Contact Us" route="contact"/>
 
             {/* Contact Form Section */}
             <div className="mx-auto max-w-6xl px-4 py-16">
@@ -101,8 +104,8 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-semibold text-blue-900">Lets Talk</h3>
-                                    <p className="text-black">+91 96191 18000</p>
-                                    <p className="text-black">tribhuvanfuneralservice@gmail.com</p>
+                                    <p className="text-black">+91 99209 63000</p>
+                                    <p className="text-black">antimsanskarsevamumbai@gmail.com</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -112,11 +115,11 @@ const Contact = () => {
                                 <div>
                                     <h3 className="text-xl font-semibold text-blue-900">Address</h3>
                                     <p className="text-black">
-                                        287 Station Vivekanand Road, LIC
+                                        8-12, Swatantryaveer Savarkar Rd
                                         <br />
-                                        Colony Screen Colony Vile Parle West,
+                                        Mahim West, Mahim,
                                         <br />
-                                        Mumbai, Maharashtra 400057
+                                        Mumbai, Maharashtra 400016
                                     </p>
                                 </div>
                             </div>
