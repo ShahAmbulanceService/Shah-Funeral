@@ -1,6 +1,8 @@
 import React from 'react';
 import { Facebook, Youtube, Instagram, MapPin, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import scrollToTop from '../hooks/useScrollEffect'
+
 const Footer = () => {
     const services = [
         'Funeral Service',
@@ -39,10 +41,7 @@ const Footer = () => {
        
     ];
 
-    const scrollEffect = () =>{
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-
+   
 
     return (
         <footer className="bg-navy text-white py-12 px-4 relative overflow-hidden">
@@ -84,9 +83,10 @@ const Footer = () => {
                     <ul className="space-y-2">
                         {services.map((service, index) => (
                             <li key={index}>
-                                <a href="#" className="text-black hover:text-orange-400 transition-colors">
+                                <Link to="/service" className="text-black hover:text-orange-400 transition-colors"
+                                onClick={scrollToTop}>
                                     {service}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -98,7 +98,11 @@ const Footer = () => {
                     <ul className="space-y-2">
                         {links.map((link, index) => (
                             <li key={index}>
-                                <Link to={link.route} className="text-gray-900 hover:text-orange-400 transition-colors" onClick={scrollEffect}>
+                                <Link
+                                    to={link.route}
+                                    className="text-gray-900 hover:text-orange-400 transition-colors"
+                                    onClick={scrollToTop} // Directly use the scrollToTop function here
+                                >
                                     {link.title}
                                 </Link>
                             </li>

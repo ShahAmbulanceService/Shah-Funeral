@@ -1,7 +1,7 @@
-// src/components/HomeSection3.jsx
 
+import { Link } from "react-router-dom";
 import React from "react";
-
+import scrollToTop from "../hooks/useScrollEffect";
 const services = [
     {
         id: 1,
@@ -96,9 +96,10 @@ const Services = () => {
                                 </p>
                             </div>
                             <div className="relative inline-block group self-center">
-                                <a href="#" className="text-orange-500 relative z-10">
+                                <Link to="/service" className="text-orange-500 relative z-10" 
+                                onClick={scrollToTop}>
                                     Read More
-                                </a>
+                                </Link>
                                 <span className="absolute left-0 bottom-0 h-0.5 w-full bg-orange-500 transition-all duration-300 transform origin-left scale-x-0 group-hover:scale-x-100"></span>
                             </div>
                         </div>
