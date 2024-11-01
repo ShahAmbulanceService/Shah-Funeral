@@ -1,6 +1,10 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ServicePage = () => {
+    const location = useLocation();
+    const { image, title, description, content } = location.state || {};
+
     return (
         <div className="max-w-7xl mx-auto p-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -9,46 +13,20 @@ const ServicePage = () => {
                     {/* Hero Image */}
                     <div className="w-full h-64 md:h-96 mb-6 relative">
                         <img
-                            src="/api/placeholder/800/600"
-                            alt="Funeral Arrangement with Red and White Flowers"
+                            src={image}
+                            alt={title}
                             className="w-full h-full object-cover rounded-lg"
                         />
                     </div>
 
                     {/* Introduction Text */}
-                    <p className="text-gray-700 mb-6">
-                        Losing a loved one is a deeply emotional and difficult experience, and we understand the importance of providing
-                        a compassionate and supportive funeral arrangement service during this time of grief. As a dedicated funeral
-                        service provider, we are here to guide and assist you every step of the way. Here is an overview of the
-                        comprehensive services we offer:
-                    </p>
+                    <p className="text-gray-700 mb-6">{description}</p>
 
                     {/* Services List */}
                     <div className="space-y-6">
-                        <ServiceItem
-                            title="Personalized Consultation"
-                            description="We offer a compassionate and understanding environment where we listen to your needs, preferences, and wishes. Our experienced funeral directors will provide guidance and support as we work together to create a personalized funeral service that truly reflects the life and values of your loved one."
-                        />
-
-                        <ServiceItem
-                            title="Funeral Planning"
-                            description="Our knowledgeable team will help you with all aspects of funeral planning. From choosing the type of service (burial or cremation) to deciding on the ceremony format, music selection, and readings, we are here to ensure that every detail is tailored to honor and celebrate the life of your loved one."
-                        />
-
-                        <ServiceItem
-                            title="Venue Selection"
-                            description="We can assist you in finding an appropriate venue for the funeral service, whether it's a place of worship, a funeral home chapel, or any other location that holds significance to your family. We will consider factors such as capacity, accessibility, and any specific cultural or religious requirements."
-                        />
-
-                        <ServiceItem
-                            title="Casket and Urn Options"
-                            description="We provide a wide selection of caskets and urns to suit different preferences and budgets. Our caring staff will help you choose a casket or urn that reflects the individuality of your loved one, offering a range of styles, materials, and finishes for you to consider."
-                        />
-
-                        <ServiceItem
-                            title="Transportation and Logistics"
-                            description="We take care of all transportation logistics, ensuring the smooth and dignified transfer of your loved one's remains. Whether it's arranging for a hearse, coordinating with the cemetery or crematorium, or assisting with out-of-town transportation, we handle these details with utmost care and professionalism."
-                        />
+                        {content && content.map((item, index) => (
+                            <ServiceItem key={index} title={item.t1} description={item.desc} />
+                        ))}
                     </div>
                 </div>
 
