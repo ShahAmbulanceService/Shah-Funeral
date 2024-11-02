@@ -44,15 +44,22 @@ const Navbar = () => {
                             <Link to="/about" className="text-gray-700 hover:text-orange-500">About</Link>
 
                             {/* Desktop Services Dropdown */}
-                            <div className="relative group"
+                            <div
+                                className="relative group"
                                 onMouseEnter={() => setIsServicesOpen(true)}
-                                onMouseLeave={() => setIsServicesOpen(false)}>
+                                onMouseLeave={() => setIsServicesOpen(false)}
+                            >
                                 <button className="flex items-center space-x-1 text-gray-700 hover:text-orange-500">
                                     <span>Services</span>
                                     <ChevronDown className="w-4 h-4" />
                                 </button>
-                                <div className={`absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 
-                                    ${isServicesOpen ? 'block' : 'hidden'}`} style={{ zIndex: 50 }}>
+                                <div
+                                    className={`absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 
+            ${isServicesOpen ? 'block' : 'hidden'}`}
+                                    style={{ zIndex: 50 }}
+                                    onMouseEnter={() => setIsServicesOpen(true)}  // Keep dropdown open when hovering over it
+                                    onMouseLeave={() => setIsServicesOpen(false)} // Close dropdown when leaving
+                                >
                                     <div className="py-1">
                                         {services.map((service) => (
                                             <Link
@@ -67,6 +74,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
+
 
                             <Link to="/contact" className="text-gray-700 hover:text-orange-500">Contact</Link>
                             <button
@@ -98,25 +106,24 @@ const Navbar = () => {
                                 {/* Mobile Services Dropdown */}
                                 <div className="relative">
                                     <button
-                                        onClick={() => setIsServicesOpen(!isServicesOpen)}
+                                        onClick={() => setIsServicesOpen(!isServicesOpen)} // Toggle on button click
                                         className="flex items-center justify-between w-full px-3 py-2 text-gray-700 hover:text-orange-500"
-                                        onMouseEnter={() => setIsServicesOpen(true)}
-                                        onMouseLeave={() => setIsServicesOpen(false)}
                                     >
                                         <span>Services</span>
                                         <ChevronDown className={`w-4 h-4 transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                                     </button>
 
-                                    {isServicesOpen && (
+                                    {isServicesOpen && ( // Conditional rendering based on state
                                         <div className="bg-gray-50 px-4">
-                                            {services.map((service, index) => (
-                                                <a
-                                                    key={index}
-                                                    href="#"
+                                            {services.map((service) => (
+                                                <Link
+                                                    key={service.id}
+                                                    to="/service"
+                                                    state={{ serviceId: service.id }}
                                                     className="block py-2 text-sm text-gray-700 hover:text-orange-500"
                                                 >
                                                     {service.name}
-                                                </a>
+                                                </Link>
                                             ))}
                                         </div>
                                     )}
@@ -132,6 +139,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     )}
+
                 </div>
             </nav>
 
