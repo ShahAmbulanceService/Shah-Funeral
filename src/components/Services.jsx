@@ -34,7 +34,7 @@
                                 <div className="relative inline-block group self-center">
                                     <Link
                                         to="/service"
-                                        state={{ image: service.image, title: service.title, description: service.description, content : service.content}}
+                                        state={{serviceId : service.id}}
                                         className="text-orange-500 relative z-10"
                                         onClick={scrollToTop}
                                     >

@@ -5,15 +5,15 @@ import scrollToTop from '../hooks/useScrollEffect'
 
 const Footer = () => {
     const services = [
-        'Funeral Service',
-        'Dead Body Transport Service',
-        'Dead Body Freezer Box',
-        'Chautha And Tehravin',
-        'Cremation Service',
-        'Pandit for Funeral Services',
-        'Prayer Hall',
-        'Asthi Visarjan',
-        'Antim Sanskar Samagri'
+        { id: 1, name: 'Funeral Service' },
+        { id: 2, name: 'Cremation Service' },
+        { id: 3, name: 'Pandit for Funeral' },
+        { id: 4, name: 'Asthi Visarjan' },
+        { id: 5, name: 'Chautha And Tehravin' },
+        { id: 6, name: 'Prayer Hall Service' },
+        { id: 7, name: 'Dead Body Transport' },
+        { id: 8, name: 'Freezer Box' },
+        { id: 9, name: 'Antim Sanskar Samagri' },
     ];
 
     const links = [
@@ -81,11 +81,15 @@ const Footer = () => {
                 <div>
                     <h3 className="text-xl font-semibold text-orange-400 mb-4">Our Services</h3>
                     <ul className="space-y-2">
-                        {services.map((service, index) => (
-                            <li key={index}>
-                                <Link to="/service" className="text-black hover:text-orange-400 transition-colors"
-                                onClick={scrollToTop}>
-                                    {service}
+                        {services.map((service) => (
+                            <li key={service.id}>
+                                <Link 
+                                to="/service"
+                                state={{serviceId: service.id}}
+                                className="text-black hover:text-orange-400 transition-colors"
+                                onClick={scrollToTop}
+                                >
+                                    {service.name}
                                 </Link>
                             </li>
                         ))}

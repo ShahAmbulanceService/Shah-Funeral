@@ -9,15 +9,15 @@ const Navbar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const services = [
-        'Funeral Arrangement',
-        'Cremation Service',
-        'Pandir for Funeral',
-        'Asthi Visarjan',
-        'Chautha And Tehravin',
-        'Prayer Hall Service',
-        'Dead Body Transport Service',
-        'Dead Body Freezer Box',
-        'Antim Sanskar Samagri',
+        { id: 1, name: 'Funeral Service' },
+        { id: 2, name: 'Cremation Service' },
+        { id: 3, name: 'Pandit for Funeral' },
+        { id: 4, name: 'Asthi Visarjan' },
+        { id: 5, name: 'Chautha And Tehravin' },
+        { id: 6, name: 'Prayer Hall Service' },
+        { id: 7, name: 'Dead Body Transport' },
+        { id: 8, name: 'Freezer Box' },
+        { id: 9, name: 'Antim Sanskar Samagri' },
     ];
 
     const handleBookingSubmit = (formData) => {
@@ -44,35 +44,28 @@ const Navbar = () => {
                             <Link to="/about" className="text-gray-700 hover:text-orange-500">About</Link>
 
                             {/* Desktop Services Dropdown */}
-                            <div className="relative group">
-                                <button
-                                    className="flex items-center space-x-1 text-gray-700 hover:text-orange-500"
-                                    onMouseEnter={() => setIsServicesOpen(true)}
-                                    onMouseLeave={() => setIsServicesOpen(false)}
-                                >
+                            <div className="relative group"
+                                onMouseEnter={() => setIsServicesOpen(true)}
+                                onMouseLeave={() => setIsServicesOpen(false)}>
+                                <button className="flex items-center space-x-1 text-gray-700 hover:text-orange-500">
                                     <span>Services</span>
                                     <ChevronDown className="w-4 h-4" />
                                 </button>
-                                <div
-                                    className={`absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 
-    ${isServicesOpen ? 'block' : 'hidden'}`}
-                                    style={{ zIndex: 50 }} // Increase z-index to ensure visibility
-                                    onMouseEnter={() => setIsServicesOpen(true)}
-                                    onMouseLeave={() => setIsServicesOpen(false)}
-                                >
+                                <div className={`absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 
+                                    ${isServicesOpen ? 'block' : 'hidden'}`} style={{ zIndex: 50 }}>
                                     <div className="py-1">
-                                        {services.map((service, index) => (
-                                            <a
-                                                key={index}
-                                                href="#"
+                                        {services.map((service) => (
+                                            <Link
+                                                key={service.id}
+                                                to="/service"
+                                                state={{ serviceId: service.id }}
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-500"
                                             >
-                                                {service}
-                                            </a>
+                                                {service.name}
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
-
                             </div>
 
                             <Link to="/contact" className="text-gray-700 hover:text-orange-500">Contact</Link>
@@ -107,6 +100,8 @@ const Navbar = () => {
                                     <button
                                         onClick={() => setIsServicesOpen(!isServicesOpen)}
                                         className="flex items-center justify-between w-full px-3 py-2 text-gray-700 hover:text-orange-500"
+                                        onMouseEnter={() => setIsServicesOpen(true)}
+                                        onMouseLeave={() => setIsServicesOpen(false)}
                                     >
                                         <span>Services</span>
                                         <ChevronDown className={`w-4 h-4 transform ${isServicesOpen ? 'rotate-180' : ''}`} />
@@ -120,7 +115,7 @@ const Navbar = () => {
                                                     href="#"
                                                     className="block py-2 text-sm text-gray-700 hover:text-orange-500"
                                                 >
-                                                    {service}
+                                                    {service.name}
                                                 </a>
                                             ))}
                                         </div>

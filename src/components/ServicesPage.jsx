@@ -1,9 +1,23 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import servicesData from '../data/services.json'; // Update with the correct path to your JSON file
+import { Link } from 'react-router-dom';
+import scrollToTop from '../hooks/useScrollEffect';
 
 const ServicePage = () => {
+
+
     const location = useLocation();
-    const { image, title, description, content } = location.state || {};
+    const { serviceId } = location.state || {};
+
+    // Find the service matching the serviceId
+    const service = servicesData.services.find((s) => s.id === serviceId);
+
+    if (!service) {
+        return <p>Service not found.</p>; // Handle case where service doesn't exist
+    }
+
+    const { image, title, description, content } = service;
 
     return (
         <div className="max-w-7xl mx-auto p-4">
@@ -70,14 +84,15 @@ const ServicePage = () => {
                     <div className="bg-white p-6 rounded-lg shadow-md">
                         <h2 className="text-xl font-semibold mb-4">Other Services</h2>
                         <ul className="space-y-3">
-                            <ServiceLink text="Funeral Arrangement Services" />
-                            <ServiceLink text="Pandit For Funeral" />
-                            <ServiceLink text="Cremation Service" />
-                            <ServiceLink text="Chautha and Tehravin" />
-                            <ServiceLink text="Prayer Hall Service" />
-                            <ServiceLink text="Dead Body Transport Service" />
-                            <ServiceLink text="Dead Body Freeze Box" />
-                            <ServiceLink text="Antim Sanskar Samagri" />
+                            <ServiceLink text="Funeral Arrangement Services" id={1} />
+                            <ServiceLink text="Cremation Service" id={2} />
+                            <ServiceLink text="Pandit For Funeral" id={3} />
+                            <ServiceLink text="Asthi Visarjan" id={4} />
+                            <ServiceLink text="Chautha and Tehravin" id={5} />
+                            <ServiceLink text="Prayer Hall Service" id={6} />
+                            <ServiceLink text="Dead Body Transport Service" id={7} />
+                            <ServiceLink text="Freeze Box" id={8} />
+                            <ServiceLink text="Antim Sanskar Samagri" id={9} />
                         </ul>
                     </div>
                 </div>
@@ -94,11 +109,15 @@ const ServiceItem = ({ title, description }) => (
     </div>
 );
 
-const ServiceLink = ({ text }) => (
+const ServiceLink = ({ text , id }) => (
     <li>
-        <a href="#" className="text-gray-700 hover:text-orange-500 transition-colors">
+        <Link
+         to="/service"
+         state={{serviceId : id}} 
+         onClick={scrollToTop}
+         className="text-gray-700 hover:text-orange-500 transition-colors">
             {text}
-        </a>
+        </Link>
     </li>
 );
 
