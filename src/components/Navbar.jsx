@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import BookingModal from './BookingModal';  // Import the BookingModal component
 import { Link } from 'react-router-dom';
-import Logo from '../images/logo.jpg'
+import Logo from '../images/logo.png'
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -36,9 +36,7 @@ const Navbar = () => {
                                 alt="Tribute Services Logo"
                                 className="h-20 w-auto" // Ensures the logo is responsive
                             />
-                            <p className="text-orange-500 text-lg italic font-bold text-center shadow-md p-1 rounded-md bg-white">
-                                Heaven has gained an angel
-                            </p>
+                          
                         </div>
 
 
