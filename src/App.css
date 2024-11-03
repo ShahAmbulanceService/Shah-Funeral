@@ -1,3 +1,23 @@
 .modal-overlay {
   z-index: 1000;
 }
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.opacity-30 {
+  opacity: 0.3;
+  /* Adjust the opacity as needed */
+}

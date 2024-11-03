@@ -6,13 +6,13 @@ const FeedbackSection = () => {
     {
       id: 1,
       message:
-        "Tribute Funeral Services provided such caring and warmhearted service during such a difficult time. I will forever be grateful for their support.",
+        "Shah Funeral Services provided such caring and warmhearted service during such a difficult time. I will forever be grateful for their support.",
       name: "Rajiv K.",
     },
     {
       id: 2,
       message:
-        "The team at Tribute Funeral Services went above and beyond to ensure that every detail of my loved one was taken care of. Service was perfect. Thank you for everything.",
+        "The team at Shah Funeral Services went above and beyond to ensure that every detail of my loved one was taken care of. Service was perfect. Thank you for everything.",
       name: "Rhea M.",
     },
     // Add more feedback items as needed

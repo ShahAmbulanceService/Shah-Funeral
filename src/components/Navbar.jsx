@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import BookingModal from './BookingModal';  // Import the BookingModal component
 import { Link } from 'react-router-dom';
-
+import Logo from '../images/logo.jpg'
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -30,13 +30,19 @@ const Navbar = () => {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex justify-between items-center h-20">
                         {/* Logo Section */}
-                        <div className="flex-shrink-0 flex items-center">
+                        <div className="flex-shrink-0 flex items-center space-x-4"> {/* Flex for horizontal alignment */}
                             <img
-                                src="https://shahfuneralservice.in/images/logo-antim-sanskar-seva.png"
+                                src={Logo}
                                 alt="Tribute Services Logo"
                                 className="h-20 w-auto" // Ensures the logo is responsive
                             />
+                            <p className="text-orange-500 text-lg italic font-bold text-center shadow-md p-1 rounded-md bg-white">
+                                Heaven has gained an angel
+                            </p>
                         </div>
+
+
+
 
                         {/* Desktop Menu */}
                         <div className="hidden md:flex items-center space-x-8">
