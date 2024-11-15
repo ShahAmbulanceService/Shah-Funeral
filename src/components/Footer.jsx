@@ -2,7 +2,7 @@ import React from 'react';
 import { Facebook, Youtube, Instagram, MapPin, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import scrollToTop from '../hooks/useScrollEffect'
-
+import Logo from '../images/logo.png'
 const Footer = () => {
     const services = [
         { id: 1, name: 'Funeral Service' },
@@ -58,7 +58,7 @@ const Footer = () => {
                 <div className="space-y-4">
                     <div className="flex items-center space-x-2">
                         {/* Logo */}
-                        <img src="https://shahfuneralservice.in/images/logo-antim-sanskar-seva.png" alt="Tribute Funeral Services" className="h-20 w-auto" />
+                        <img src={Logo} alt="Tribute Funeral Services" className="h-20 w-auto" />
                     </div>
                     <p className="text-gray-700">
                         Trust us for peaceful care for your loved ones, beyond this world and into eternity.
