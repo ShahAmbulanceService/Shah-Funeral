@@ -121,8 +121,8 @@ const Footer = () => {
                         <div className="flex items-start space-x-3">
                             <MapPin className="text-orange-400 mt-1" size={20} />
                             <p className="text-gray-900 ">
-                               Opp BMW Showroom, Juhu Lane,  <br/>
-                               Andheri (W), Mumbai 400058 
+                              Near Padel road , jaslok hospital ,  <br/>
+                              Mumbai 400058 , Maharashtra
 
                             </p>
                         </div>
