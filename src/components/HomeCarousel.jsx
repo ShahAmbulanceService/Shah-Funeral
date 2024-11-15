@@ -68,7 +68,7 @@ const HeroCarousel = () => {
                 {slide.title}
               </h1>
               <a
-                href="tel:+919920963000"
+                href="tel:+919619500600"
                 className="px-8 py-4 mt-8 font-semibold text-white bg-orange-500 rounded hover:bg-orange-600 z-50"
               >
                 {slide.buttonText}

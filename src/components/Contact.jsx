@@ -104,8 +104,8 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-semibold text-blue-900">Lets Talk</h3>
-                                    <p className="text-black">+91 99209 63000</p>
-                                    <p className="text-black">+91 99209 64000</p>
+                                    <p className="text-black">+91 96195 00600</p>
+                                    <p className="text-black">+91 96194 00500</p>
                                     <p className="text-black">shahambulanceservice24x7@gmail.com</p>
                                 </div>
                             </div>
@@ -116,9 +116,9 @@ const Contact = () => {
                                 <div>
                                     <h3 className="text-xl font-semibold text-blue-900">Address</h3>
                                     <p className="text-black">
-                                        Opp BMW Showroom,  
+                                       Near Padel road ,
                                         <br />
-                                        Juhu Lane,  Andheri (W),
+                                        jaslok hospital,
                                         <br />
                                        Mumbai 400058
                                     </p>
