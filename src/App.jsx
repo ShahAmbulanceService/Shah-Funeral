@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { FloatingWhatsApp } from 'react-floating-whatsapp';
-import avatar from './images/avatar-whatsapp-icon.jpg'; // Import the avatar image
+import whatsappIcon from './images/whatsappIcon.webp'; // WhatsApp avatar image
 import Navbar from './components/Navbar';
 import Contact from './components/Contact';
 import Homepage from './components/Homepage';
@@ -8,8 +7,8 @@ import About from './components/About';
 import Footer from './components/Footer';
 import ServicePage from './components/ServicesPage';
 
-// Import the call button image
-import callIcon from './images/callIcon.png'; // Save the image locally in your project
+// Import the call icon image
+import callIcon from './images/callIcon.png';
 
 function App() {
   return (
@@ -23,29 +22,39 @@ function App() {
           <Route path="/service" element={<ServicePage />} />
           {/* other routes */}
         </Routes>
-        <Footer />
+        {/* Add bottom padding to ensure footer visibility */}
+        <div className="pb-24">
+          <Footer />
+        </div>
       </Router>
 
-      {/* Floating WhatsApp Button */}
-      <FloatingWhatsApp
-        phoneNumber="9920964000"
-        accountName="Shah Funeral Service"
-        avatar={avatar} // Use the imported avatar here
-      />
+      {/* Call and WhatsApp Button Section */}
+      <div className="fixed bottom-4 left-4 right-4 z-50 px-4 py-2 rounded-lg">
+        <div className="flex items-center justify-between space-x-4">
+          {/* Call Button */}
+          <a
+            href="tel:+919619400500"
+            className="flex items-center justify-center bg-gradient-to-br from-orange-400 to-red-500 text-white py-3 px-4 sm:px-6 text-sm sm:text-lg font-semibold rounded-full shadow-md transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg focus:outline-none w-full sm:w-auto"
+            aria-label="Call Shah Funeral Service"
+          >
+            <img src={callIcon} alt="Call Icon" className="w-5 h-5 sm:w-8 sm:h-8 rounded-full mr-2 sm:mr-3" />
+            <span>Call Now</span>
+          </a>
 
-      {/* Call Button */}
-      <div className="fixed bottom-4 left-4 z-50">
-        <a
-          href="tel:9920964000"
-          className="flex items-center justify-center w-14 h-14 bg-transparent rounded-full shadow-lg hover:opacity-80"
-          aria-label="Call Shah Funeral Service"
-        >
-          <img
-            src={callIcon}
-            alt="Call Icon"
-            className="w-full h-full object-cover rounded-full"
-          />
-        </a>
+          {/* WhatsApp Button */}
+          <a
+            href="https://wa.me/+919619500600"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center bg-gradient-to-br from-green-400 to-teal-500 text-white py-3 px-4 sm:px-6 text-sm sm:text-lg font-semibold rounded-full shadow-md transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg focus:outline-none w-full sm:w-auto"
+            aria-label="WhatsApp Shah Funeral Service"
+          >
+            <img src={whatsappIcon} alt="WhatsApp Icon" className="w-5 h-5 sm:w-8 sm:h-8 rounded-full mr-2 sm:mr-3" />
+            <span>WhatsApp</span>
+          </a>
+
+         
+        </div>
       </div>
     </>
   );

@@ -11,7 +11,7 @@ const HeroCarousel = () => {
           Care And Compassion
         </>
       ),
-      buttonText: "Call Us Now",
+      buttonText: "Enquire Now",
     },
     {
       image: "https://cdn.sanity.io/images/zzw4zduo/production/50b8eca404e70deb7aec4de13a8d80e38492f199-6546x4364.jpg",
@@ -22,7 +22,7 @@ const HeroCarousel = () => {
           We're Here To Ensure It
         </>
       ),
-      buttonText: "Call Us Now",
+      buttonText: "Enquire Now",
     },
     {
       image: "https://evergreenjax.com/wp-content/uploads/2023/05/mayron-oliveira-mibn6LLm9kA-unsplash-1150x647.jpg",
@@ -33,7 +33,7 @@ const HeroCarousel = () => {
           Creating Meaningful Tributes
         </>
       ),
-      buttonText: "Call Us Now",
+      buttonText: "Enquire Now",
     },
   ];
 
@@ -68,7 +68,7 @@ const HeroCarousel = () => {
                 {slide.title}
               </h1>
               <a
-                href="tel:+919619500600"
+                href="tel:+919619400500"
                 className="px-8 py-4 mt-8 font-semibold text-white bg-orange-500 rounded hover:bg-orange-600 z-50"
               >
                 {slide.buttonText}
