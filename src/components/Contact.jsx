@@ -116,11 +116,11 @@ const Contact = () => {
                                 <div>
                                     <h3 className="text-xl font-semibold text-blue-900">Address</h3>
                                     <p className="text-black">
-                                        15, Pedder Rd, IT Colony ,
+                                        Near Jaslok Hospital 15, Pedder Rd, IT Colony ,
                                         <br />
-                                        Tardeo Mumbai,
+                                        Tardeo Mumbai , Maharashtra 400026
                                         <br />
-                                        Maharashtra 400026
+                                        
                                     </p>
                                 </div>
                             </div>

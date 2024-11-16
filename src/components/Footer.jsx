@@ -121,9 +121,9 @@ const Footer = () => {
                         <div className="flex items-start space-x-3">
                             <MapPin className="text-orange-400 mt-1" size={20} />
                             <p className="text-gray-900 ">
-                                15, Pedder Rd, IT Colony , Tardeo Mumbai,
+                              Near Jaslok Hospital , 15 Pedder Rd, IT Colony , Tardeo Mumbai,
                                 <br />
-                                Maharashtra 400026
+                              Maharashtra 400026
 
                             </p>
                         </div>
