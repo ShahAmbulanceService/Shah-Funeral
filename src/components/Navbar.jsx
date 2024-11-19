@@ -12,6 +12,7 @@ const Dropdown = ({ title, items, isOpen, toggle }) => {
                 onMouseEnter={() => toggle(true)} // Keep dropdown open on hover
                 onMouseLeave={() => toggle(false)} // Close dropdown on leave
                 className="flex items-center space-x-1 text-gray-700 hover:text-orange-500"
+                value="nONE"
             >
                 <span>{title}</span>
                 <ChevronDown className="w-4 h-4" />
