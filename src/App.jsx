@@ -1,31 +1,32 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import whatsappIcon from './images/whatsappIcon.webp'; // WhatsApp avatar image
 import Navbar from './components/Navbar';
-import Contact from './components/Contact';
-import Homepage from './components/Homepage';
-import About from './components/About';
 import Footer from './components/Footer';
-import ServicePage from './components/ServicesPage';
-
-// Import the call icon image
-import callIcon from './images/callIcon.png';
+import React from 'react';
+import callIcon from './images/callIcon.png'
+// Lazy load the pages
+const Homepage = React.lazy(() => import('./components/Homepage'));
+const About = React.lazy(() => import('./components/About'));
+const Contact = React.lazy(() => import('./components/Contact'));
+const ServicePage = React.lazy(() => import('./components/ServicesPage'));
 
 function App() {
   return (
     <>
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/service" element={<ServicePage />} />
-          {/* other routes */}
-        </Routes>
-        {/* Add bottom padding to ensure footer visibility */}
-        <div className="pb-24">
-          <Footer />
-        </div>
+        {/* Suspense to handle the lazy loading of components */}
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/service" element={<ServicePage />} />
+          </Routes>
+        </React.Suspense>
+
+        {/* Footer with padding */}
+        <Footer className="pb-24" />
       </Router>
 
       {/* Call and WhatsApp Button Section */}
@@ -52,8 +53,6 @@ function App() {
             <img src={whatsappIcon} alt="WhatsApp Icon" className="w-5 h-5 sm:w-8 sm:h-8 rounded-full mr-2 sm:mr-3" />
             <span>WhatsApp</span>
           </a>
-
-         
         </div>
       </div>
     </>

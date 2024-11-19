@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import servicesData from '../data/services.json'; // Update with the correct path to your JSON file
 import { Link } from 'react-router-dom';
 import scrollToTop from '../hooks/useScrollEffect';
+import servicesData from '../data/services.json';
 
 const ServicePage = () => {
-
-
     const location = useLocation();
     const { serviceId } = location.state || {};
+    const [service, setService] = useState(null);
 
-    // Find the service matching the serviceId
-    const service = servicesData.services.find((s) => s.id === serviceId);
+    useEffect(() => {
+        // Fetch the service based on the serviceId
+        if (serviceId) {
+            const foundService = servicesData.services.find((s) => s.id === serviceId);
+            setService(foundService);
+        }
+    }, [serviceId]);
 
     if (!service) {
         return <p>Service not found.</p>; // Handle case where service doesn't exist
@@ -55,6 +59,7 @@ const ServicePage = () => {
                                     type="text"
                                     placeholder="Enter your name"
                                     className="w-full p-2 border border-gray-300 rounded"
+                                    required
                                 />
                             </div>
                             <div>
@@ -62,6 +67,7 @@ const ServicePage = () => {
                                     type="tel"
                                     placeholder="Enter Mobile Number"
                                     className="w-full p-2 border border-gray-300 rounded"
+                                    required
                                 />
                             </div>
                             <div className="flex gap-4">
@@ -69,6 +75,7 @@ const ServicePage = () => {
                                     type="text"
                                     placeholder="Captcha"
                                     className="flex-grow p-2 border border-gray-300 rounded"
+                                    required
                                 />
                                 <div className="bg-orange-500 text-white p-2 rounded w-20 flex items-center justify-center">
                                     7b/216
@@ -84,15 +91,9 @@ const ServicePage = () => {
                     <div className="bg-white p-6 rounded-lg shadow-md">
                         <h2 className="text-xl font-semibold mb-4">Other Services</h2>
                         <ul className="space-y-3">
-                            <ServiceLink text="Funeral Arrangement Services" id={1} />
-                            <ServiceLink text="Cremation Service" id={2} />
-                            <ServiceLink text="Pandit For Funeral" id={3} />
-                            <ServiceLink text="Asthi Visarjan" id={4} />
-                            <ServiceLink text="Chautha and Tehravin" id={5} />
-                            <ServiceLink text="Prayer Hall Service" id={6} />
-                            <ServiceLink text="Dead Body Transport Service" id={7} />
-                            <ServiceLink text="Freeze Box" id={8} />
-                            <ServiceLink text="Antim Sanskar Samagri" id={9} />
+                            {servicesData.services.map((otherService) => (
+                                <ServiceLink key={otherService.id} text={otherService.title} id={otherService.id} />
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -109,13 +110,14 @@ const ServiceItem = ({ title, description }) => (
     </div>
 );
 
-const ServiceLink = ({ text , id }) => (
+const ServiceLink = ({ text, id }) => (
     <li>
         <Link
-         to="/service"
-         state={{serviceId : id}} 
-         onClick={scrollToTop}
-         className="text-gray-700 hover:text-orange-500 transition-colors">
+            to="/service"
+            state={{ serviceId: id }}
+            onClick={scrollToTop}
+            className="text-gray-700 hover:text-orange-500 transition-colors"
+        >
             {text}
         </Link>
     </li>

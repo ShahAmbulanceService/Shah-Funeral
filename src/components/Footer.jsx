@@ -1,8 +1,9 @@
 import React from 'react';
 import { Facebook, Youtube, Instagram, MapPin, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import scrollToTop from '../hooks/useScrollEffect'
-import Logo from '../images/logo.png'
+import scrollToTop from '../hooks/useScrollEffect';
+import Logo from '../images/logo.png';
+
 const Footer = () => {
     const services = [
         { id: 1, name: 'Funeral Service' },
@@ -17,38 +18,18 @@ const Footer = () => {
     ];
 
     const links = [
-        {
-           title: 'Home',
-           route: '/'
-        },
-        {
-           title: 'About',
-           route: '/about'
-        },
-        {
-            title: 'Contact',
-            route:'/contact'
-        },
-        {
-            title: 'Privacy Policy',
-            route:'/'
-        },
-        {
-            title: 'Terms & Conditions',
-            route:'/'
-        }
-
-       
+        { title: 'Home', route: '/' },
+        { title: 'About', route: '/about' },
+        { title: 'Contact', route: '/contact' },
+        { title: 'Privacy Policy', route: '/' },
+        { title: 'Terms & Conditions', route: '/' },
     ];
-
-   
 
     return (
         <footer className="bg-navy text-white py-12 px-4 relative overflow-hidden">
-            {/* Background bird logo */}
+            {/* Decorative Background */}
             <div className="absolute right-0 bottom-0 opacity-10">
                 <div className="w-32 h-32 transform rotate-45">
-                    {/* Simplified bird shape using a div with border */}
                     <div className="w-full h-full border-2 border-white rounded-tl-full"></div>
                 </div>
             </div>
@@ -56,24 +37,38 @@ const Footer = () => {
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {/* Company Info */}
                 <div className="space-y-4">
-                    <div className="flex items-center space-x-2">
-                        {/* Logo */}
-                        <img src={Logo} alt="Tribute Funeral Services" className="h-20 w-auto" />
-                    </div>
+                    <img src={Logo} alt="Tribute Funeral Services" className="h-20 w-auto" />
                     <p className="text-gray-700">
                         Trust us for peaceful care for your loved ones, beyond this world and into eternity.
                     </p>
                     <div className="flex space-x-4">
-                        <a href="https://www.facebook.com/profile.php?id=61566525907429&mibextid=ZbWKwL" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
+                        <a
+                            href="https://www.facebook.com/profile.php?id=61566525907429&mibextid=ZbWKwL"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors"
+                            aria-label="Visit our Facebook page"
+                        >
                             <Facebook size={20} />
                         </a>
-                        <a href="https://www.youtube.com/@ShahAmbulanceService" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
+                        <a
+                            href="https://www.youtube.com/@ShahAmbulanceService"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors"
+                            aria-label="Visit our YouTube channel"
+                        >
                             <Youtube size={20} />
                         </a>
-                        <a href="https://www.instagram.com/shahambulanceservice24x7/" className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors">
+                        <a
+                            href="https://www.instagram.com/shahambulanceservice24x7/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-orange-400 p-2 rounded-md hover:bg-orange-500 transition-colors"
+                            aria-label="Visit our Instagram profile"
+                        >
                             <Instagram size={20} />
                         </a>
-                       
                     </div>
                 </div>
 
@@ -83,11 +78,11 @@ const Footer = () => {
                     <ul className="space-y-2">
                         {services.map((service) => (
                             <li key={service.id}>
-                                <Link 
-                                to="/service"
-                                state={{serviceId: service.id}}
-                                className="text-black hover:text-orange-400 transition-colors"
-                                onClick={scrollToTop}
+                                <Link
+                                    to="/service"
+                                    state={{ serviceId: service.id }}
+                                    className="text-black hover:text-orange-400 transition-colors"
+                                    onClick={scrollToTop}
                                 >
                                     {service.name}
                                 </Link>
@@ -105,7 +100,7 @@ const Footer = () => {
                                 <Link
                                     to={link.route}
                                     className="text-gray-900 hover:text-orange-400 transition-colors"
-                                    onClick={scrollToTop} // Directly use the scrollToTop function here
+                                    onClick={scrollToTop}
                                 >
                                     {link.title}
                                 </Link>
@@ -120,11 +115,10 @@ const Footer = () => {
                     <div className="space-y-4">
                         <div className="flex items-start space-x-3">
                             <MapPin className="text-orange-400 mt-1" size={20} />
-                            <p className="text-gray-900 ">
-                              Near Jaslok Hospital , 15 Pedder Rd, IT Colony , Tardeo Mumbai,
+                            <p className="text-gray-900">
+                                Near Jaslok Hospital, 15 Pedder Rd, IT Colony,
                                 <br />
-                              Maharashtra 400026
-
+                                Tardeo, Mumbai, Maharashtra 400026
                             </p>
                         </div>
                         <div className="flex items-center space-x-3">
@@ -143,12 +137,17 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Copyright */}
+            {/* Copyright Section */}
             <div className="mt-12 pt-4 border-t border-gray-700 text-center text-gray-900">
                 <p>
-                    Copyright © 2024 All rights reserved | Designed by{' '}
-                    <a href="https://zome-tech.vercel.app/" className="text-orange-400 hover:underline">
-                        Zome 
+                    Copyright © {new Date().getFullYear()} All rights reserved | Designed by{' '}
+                    <a
+                        href="https://zome-tech.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-orange-400 hover:underline"
+                    >
+                        Zome
                     </a>
                 </p>
             </div>
