@@ -142,7 +142,7 @@ const Footer = () => {
                 <p>
                     Copyright © {new Date().getFullYear()} All rights reserved | Designed by{' '}
                     <a
-                        href="https://zome-tech.vercel.app/"
+                        href="https://zome.in/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-400 hover:underline"
