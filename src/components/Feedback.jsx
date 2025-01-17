@@ -1,55 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+} from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyANMXAIXPdIIg71irc5EnYEPk_Y24xD4WM",
+  authDomain: "shah-funeral.firebaseapp.com",
+  projectId: "shah-funeral",
+  storageBucket: "shah-funeral.firebasestorage.app",
+  messagingSenderId: "836785872473",
+  appId: "1:836785872473:web:3b8d50178a13e1f22f9b48",
+  measurementId: "G-E4LJBEWZZ1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 const FeedbackSection = () => {
-  // Sample feedback data
-  const feedbacks = [
-    {
-      id: 3,
-      message:
-        "Shah Funeral Services handled everything with such dignity and respect. Their compassionate approach made us feel supported during our loss.",
-      name: "Anjali Patel",
-    },
-    {
-      id: 4,
-      message:
-        "I cannot thank the team at Shah Funeral Services enough for their professionalism and empathy. They truly eased the burden on our family.",
-      name: "Kiran Sharma",
-    },
-    {
-      id: 5,
-      message:
-        "Their attention to detail and commitment to honoring our traditions were remarkable. We felt at peace knowing everything was in their capable hands.",
-      name: "Sunil Kumar",
-    },
-    {
-      id: 6,
-      message:
-        "Shah Funeral Services offered more than just service; they provided emotional support and guidance. We’ll always remember their kindness.",
-      name: "Priya Desai",
-    },
-    {
-      id: 7,
-      message:
-        "The staff was incredibly patient and understanding. They walked us through every step and made a challenging time much easier.",
-      name: "Vivek Joshi",
-    },
-    {
-      id: 8,
-      message:
-        "I highly recommend Shah Funeral Services. They delivered exceptional care and professionalism while respecting our cultural values.",
-      name: "Arun Mehta",
-    },
-  ];
-
+  const [feedbacks, setFeedbacks] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [newFeedback, setNewFeedback] = useState({ name: "", message: "" });
 
-  // Handle navigation to previous feedback
+  // Fetch feedback from Firestore
+  useEffect(() => {
+    const fetchFeedback = async () => {
+      const querySnapshot = await getDocs(collection(db, "feedbacks"));
+      const fetchedFeedbacks = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setFeedbacks(fetchedFeedbacks);
+    };
+    fetchFeedback();
+  }, []);
+
+  const handleAddFeedback = async () => {
+    if (newFeedback.name && newFeedback.message) {
+      try {
+        await addDoc(collection(db, "feedbacks"), newFeedback);
+        setFeedbacks([...feedbacks, newFeedback]);
+        setShowModal(false);
+        setNewFeedback({ name: "", message: "" });
+      } catch (error) {
+        console.error("Error adding document:", error);
+      }
+    }
+  };
+
+
+  // Handle navigation
   const handlePrev = () => {
     const newIndex = currentIndex === 0 ? feedbacks.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
 
-  // Handle navigation to next feedback
   const handleNext = () => {
     const newIndex = currentIndex === feedbacks.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
@@ -61,7 +70,6 @@ const FeedbackSection = () => {
       aria-labelledby="feedback-heading"
     >
       <header className="flex flex-col lg:flex-row items-start lg:items-center justify-between">
-        {/* Left Side - Heading and Navigation */}
         <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
           <h2
             id="feedback-heading"
@@ -71,16 +79,14 @@ const FeedbackSection = () => {
           </h2>
           <p className="text-gray-600 text-lg mb-6">
             We are proud to share the positive feedback we have received from
-            many of the families and individuals who we supported during their
+            many of the families and individuals we supported during their
             difficult times.{" "}
-            <a
+            <button
               className="text-blue-700 underline"
-              href="https://www.google.com/search?q=shah+funeral+ser+ice&oq=shah+funeral+ser+ice&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yDQgCEAAYhgMYgAQYigUyDQgDEAAYhgMYgAQYigUyCggEEAAYgAQYogQyBggFEEUYPTIGCAYQRRg8MgYIBxBFGDzSAQgyNDQ4ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8&lqi=ChRzaGFoIGZ1bmVyYWwgc2VydmljZUiJ1pH4rbqAgAhaIhAAEAEQAhgAGAEYAiIUc2hhaCBmdW5lcmFsIHNlcnZpY2WSARFhbWJ1bGFuY2Vfc2VydmljZaoBVxABKhgiFHNoYWggZnVuZXJhbCBzZXJ2aWNlKAAyHxABIhtDGt5-ILvxb-osuqZwjRO9-FK7Y8NB_TByqkQyGBACIhRzaGFoIGZ1bmVyYWwgc2VydmljZQ#lrd=0xa91473f1d36b6e23:0x654650597d9f379a,3,,,,&rlimm=7297608591490365338"
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => setShowModal(true)}
             >
               Share Your Experience
-            </a>
+            </button>
           </p>
           <div className="flex items-center space-x-4">
             <button
@@ -100,30 +106,76 @@ const FeedbackSection = () => {
           </div>
         </div>
 
-        {/* Right Side - Feedback Cards */}
         <div className="w-full lg:w-2/3 flex flex-col space-y-6 lg:space-y-0 lg:flex-row lg:space-x-6">
-          {/* Feedback Card 1 */}
-          <article
-            className="bg-white rounded-lg p-6 flex-1 shadow-xl border border-gray-100"
-            aria-label={`Feedback from ${feedbacks[currentIndex].name}`}
-          >
-            <p className="text-gray-700 text-lg mb-4">
-              {feedbacks[currentIndex].message}
-            </p>
-            <p className="font-bold text-[#04083e]">{feedbacks[currentIndex].name}</p>
-          </article>
-          {/* Feedback Card 2 */}
-          <article
-            className="bg-white rounded-lg p-6 flex-1 shadow-xl border border-gray-100"
-            aria-label={`Feedback from ${feedbacks[(currentIndex + 1) % feedbacks.length].name}`}
-          >
-            <p className="text-gray-700 text-lg mb-4">
-              {feedbacks[(currentIndex + 1) % feedbacks.length].message}
-            </p>
-            <p className="font-bold text-[#04083e]">{feedbacks[(currentIndex + 1) % feedbacks.length].name}</p>
-          </article>
+          {feedbacks.length > 0 && (
+            <>
+              <article
+                className="bg-white rounded-lg p-6 flex-1 shadow-xl border border-gray-100"
+                aria-label={`Feedback from ${feedbacks[currentIndex]?.name}`}
+              >
+                <p className="text-gray-700 text-lg mb-4">
+                  {feedbacks[currentIndex]?.message}
+                </p>
+                <p className="font-bold text-[#04083e]">
+                  {feedbacks[currentIndex]?.name}
+                </p>
+              </article>
+              <article
+                className="bg-white rounded-lg p-6 flex-1 shadow-xl border border-gray-100"
+                aria-label={`Feedback from ${feedbacks[(currentIndex + 1) % feedbacks.length]?.name
+                  }`}
+              >
+                <p className="text-gray-700 text-lg mb-4">
+                  {feedbacks[(currentIndex + 1) % feedbacks.length]?.message}
+                </p>
+                <p className="font-bold text-[#04083e]">
+                  {feedbacks[(currentIndex + 1) % feedbacks.length]?.name}
+                </p>
+              </article>
+            </>
+          )}
         </div>
       </header>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            <h3 className="text-lg font-bold mb-4">Share Your Feedback</h3>
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full border p-2 mb-4 rounded"
+              value={newFeedback.name}
+              onChange={(e) =>
+                setNewFeedback({ ...newFeedback, name: e.target.value })
+              }
+            />
+            <textarea
+              placeholder="Your Feedback"
+              className="w-full border p-2 mb-4 rounded"
+              rows="4"
+              value={newFeedback.message}
+              onChange={(e) =>
+                setNewFeedback({ ...newFeedback, message: e.target.value })
+              }
+            ></textarea>
+            <div className="flex justify-end space-x-4">
+              <button
+                onClick={() => setShowModal(false)}
+                className="bg-gray-200 px-4 py-2 rounded"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleAddFeedback}
+                className="bg-blue-500 text-white px-4 py-2 rounded"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
