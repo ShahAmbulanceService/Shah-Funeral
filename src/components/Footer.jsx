@@ -26,7 +26,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className=" bg-navy text-white py-12 px-4 relative overflow-hidden">
+        <footer className="pb-24 z-10 bg-navy text-white py-12 px-4 relative overflow-hidden">
             {/* Decorative Background */}
             <div className="absolute right-0 bottom-0 opacity-10">
                 <div className="w-32 h-32 transform rotate-45">
@@ -145,10 +145,11 @@ const Footer = () => {
                         href="https://zome.in/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-orange-400 hover:underline"
+                        className="text-orange-400 hover:underline relative z-10"
                     >
                         Zome
                     </a>
+
                 </p>
             </div>
         </footer>
