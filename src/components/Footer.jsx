@@ -20,6 +20,7 @@ const Footer = () => {
     const links = [
         { title: 'Home', route: '/' },
         { title: 'About', route: '/about' },
+        { title: 'FAQ', route: '/faq' },
         { title: 'Contact', route: '/contact' },
         { title: 'Privacy Policy', route: '/' },
         { title: 'Terms & Conditions', route: '/' },
@@ -140,15 +141,15 @@ const Footer = () => {
             {/* Copyright Section */}
             <div className="mt-12 pt-4 border-t border-gray-700 text-center text-gray-900">
                 <p>
-                    Copyright © {new Date().getFullYear()} All rights reserved | Designed by{' '}
-                    <a
-                        href="https://zome.in/"
+                    Copyright © {new Date().getFullYear()} All rights reserved
+                    {/* <a
+                        href=""
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-400 hover:underline relative z-10"
                     >
-                        Zome
-                    </a>
+                    Sameksh
+                    </a> */}
 
                 </p>
             </div>

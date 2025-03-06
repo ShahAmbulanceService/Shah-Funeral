@@ -21,3 +21,48 @@
   opacity: 0.3;
   /* Adjust the opacity as needed */
 }
+
+
+/* Marquee CSS */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee {
+  display: flex;
+  gap: 50px; /* Space between repetitions */
+  width: max-content;
+  font-size: 1rem; /* Responsive text */
+  font-weight: bold;
+  animation: marquee-scroll 20s linear infinite;
+}
+.emoji {
+  color: #00ff00 !important; /* Green emoji color */
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive text size */
+@media (max-width: 768px) {
+  .marquee {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee {
+    font-size: 0.8rem;
+  }
+}
+
+

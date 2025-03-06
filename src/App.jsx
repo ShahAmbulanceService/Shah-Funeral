@@ -4,16 +4,19 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import React from 'react';
 import callIcon from './images/callIcon.png'
+import Marquee from './components/Marquee';
 // Lazy load the pages
 const Homepage = React.lazy(() => import('./components/Homepage'));
 const About = React.lazy(() => import('./components/About'));
 const Contact = React.lazy(() => import('./components/Contact'));
 const ServicePage = React.lazy(() => import('./components/ServicesPage'));
+const FaqPage = React.lazy(() => import('./components/FaqPage'));
 
 function App() {
   return (
     <>
       <Router>
+        <Marquee />
         <Navbar />
         {/* Suspense to handle the lazy loading of components */}
         <React.Suspense fallback={<div>Loading...</div>}>
@@ -22,6 +25,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/service" element={<ServicePage />} />
+            <Route path="/faq" element={<FaqPage />} />
           </Routes>
         </React.Suspense>
 

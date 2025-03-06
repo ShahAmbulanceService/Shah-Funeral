@@ -11,29 +11,32 @@ const HeroCarousel = () => {
         <>
           Guiding You Through Moments <br />
           Of <span className="text-orange-500">Remembrance</span> With <br />
-          Care And Compassion
+          Care And Compassion Across <br />
+          <span className="text-orange-500">Mumbai, Navi Mumbai & Thane</span>
         </>
       ),
       buttonText: "Enquire Now",
     },
     {
-      image: Image2, // Corrected here
+      image: Image2,
       title: (
         <>
           Every Life Deserves A <br />
           <span className="text-orange-500">Dignified Farewell</span>, <br />
-          We're Here To Ensure It
+          We're Here To Ensure It In <br />
+          <span className="text-orange-500">Mumbai, Navi Mumbai & Thane</span>
         </>
       ),
       buttonText: "Enquire Now",
     },
     {
-      image: Image3, // Corrected here
+      image: Image3,
       title: (
         <>
-          Where <span className="text-orange-500">Empathy</span> And{" "}
+          Where <span className="text-orange-500">Empathy</span> And <br />
           <span className="text-orange-500">Professionalism</span> Unite, <br />
-          Creating Meaningful Tributes
+          Creating Meaningful Tributes <br />
+          Across <span className="text-orange-500">Mumbai, Navi Mumbai & Thane</span>
         </>
       ),
       buttonText: "Enquire Now",

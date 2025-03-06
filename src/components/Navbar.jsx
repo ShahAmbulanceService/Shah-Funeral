@@ -84,6 +84,7 @@ const Navbar = () => {
                                 isOpen={isServicesOpen}
                                 toggle={setIsServicesOpen}
                             />
+                            <Link to="/faq" className="text-gray-700 hover:text-orange-500">FAQ</Link>
                             <Link to="/contact" className="text-gray-700 hover:text-orange-500">Contact</Link>
                             <button
                                 onClick={() => setIsModalOpen(true)}
@@ -118,6 +119,7 @@ const Navbar = () => {
                                     isOpen={isServicesOpen}
                                     toggle={setIsServicesOpen}
                                 />
+                                <Link to="/faq" className="block px-3 py-2 text-gray-700 hover:text-orange-500">FAQ</Link>
                                 <Link to="/contact" className="block px-3 py-2 text-gray-700 hover:text-orange-500">Contact</Link>
                                 <button
                                     onClick={() => setIsModalOpen(true)}
