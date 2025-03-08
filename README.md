@@ -47,21 +47,9 @@ Shah-Funeral/
 └── README.md          # Project documentation
 
 
-## 🌍 Deployment
-This project can be deployed on **Netlify, Vercel, or GitHub Pages**.
-
-### **Deploy on Vercel**
-1. Install Vercel CLI:
-   npm install -g vercel
-
-2. Deploy:
-   vercel
-
-3. Follow the on-screen steps to complete deployment.
-
-## 📧 Contact
-For any queries, feel free to contact us at **info@shahfuneralservice.in**.
 
 
-Made with ❤️ by **Shah Ambulance Service**.
+### To Run the project
+### npm run dev
+
 
